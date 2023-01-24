@@ -3,6 +3,7 @@
 #+STARTUP: latexpreview
 #+LANGUAGE: gr
 #+OPTIONS: toc: t tags:t
+#+LATEX: tags
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+EXCLUDE_TAGS: noexport
@@ -19,6 +20,128 @@
 στην πορεία της εργασίας.
 ** Γενικοί υπολογισμοί
 *** Προσδιορισμός κρίσιμων δεδομένων σχεδιασμού
+
+\begin{equation}
+\begin{align}
+\Sigma F_{x} = 0 \Rightarrow A_{x} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+\Sigma F_{y} = 0 \Rightarrow A_{y}+B_{y}-F_{1}-F_{2} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+\Sigma M_{A} = 0 \Rightarrow F_{1} \cdot x_{1}+F_{2} \cdot x_{2} - B_{y} \cdot x_{tot} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+(3) \Rightarrow B_{y} =  \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+    \end{equation}
+
+\begin{equation}
+\begin{align}
+(2) \Rightarrow A_{y} = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+**** Για \(0<x<x_{1}\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
+&N(x) = 0
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+Q(x) - A_{y} = 0 \Rightarrow Q(x) = A_{y} \Rightarrow \\
+&Q(x) = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+M(x) + A_{y} \cdot x = 0 \Rightarrow M(x) = -A_{y} \cdot x \Rightarrow \\
+&M(x) = -(\right F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \left) \cdot x
+\end{align}
+\end{equation}
+
+
+**** Για \(x_{1}<x<x_{2}\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
+&N(x)= 0
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+Q(x) - A_{y} +F_{1} = 0 \Rightarrow Q(x) = A_{y}-F_{1} \Rightarrow \\
+&Q(x) = F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+M(x) + A_{y} \cdot x + F_{1} \cdot (x-x_{1}) = 0 \Rightarrow \\
+M(x) = -(A_{y} \cdot x + F_{1} \cdot (x-x_{1})) \Rightarrow \\
+&M(x) = - [\right (\right F_{1}+F_{2}-\frac{F_{1}\cdot x_{1}+F_{2}\cdot x_{2}}{x_{tot}}\left)\cdot x +F_{1}\cdot(x-x_{1})\left]
+\end{align}
+\end{equation}
+
+**** Για \(x_{1} + x_{2} < x <x_{1}+x_{2}+x_{3}\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
+&N(x) = 0
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+Q(x) - A_{y} +F_{1} +F_{2} = 0 \Rightarrow \\
+Q(x) = A_{y} - F_{1}-F_{2} \Rightarrow \\
+&Q(x) = - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\begin{align}
+M(x) + A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2}) = 0 \Rightarrow \\
+M(x) = -(A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2})) \Rightarrow \\
+&M(x) = - [\right (\right F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \left) \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2}) \left]
+\end{align}
+\end{equation}
+
 *** Υπολογισμός φορτίων
 ** Διαγράμματα N, Q, M
 ** Διαστασιολόγιση επιμέρους τμημάτων
@@ -26,3 +149,46 @@
 ** Λοιπά στοιχεία μηχανών
 * notes :noexport:
 ** TODO be ready at<2023-01-29 Κυρ>
+** How to continue the numbering
+
+\begin{equation}
+\begin{align}
+\setcounter{7}
+\Sigma F_{x} = 0 \Rightarrow A_{x} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+\setcounter{8}
+\Sigma F_{y} = 0 \Rightarrow A_{y}+B_{y}-F_{1}-F_{2} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+\setcounter{8}
+\Sigma M_{A} = 0 \Rightarrow F_{1} \cdot x_{1}+F_{2} \cdot x_{2} - B_{y} \cdot x_{tot} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+\setcounter{8}
+(3) \Rightarrow B_{y} = 23.544 [kN]
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+\setcounter{8}
+(2) \Rightarrow A_{y} = F_{1}+F_{2} - B_{y} \Rightarrow
+\end{align}
+\end{equation}
+
+\begin{equation}
+\begin{align}
+\setcounter{8}
+F_{work_{tot}} - B_{y} = 47.088 [kN] - 23.544 [kN] = 23.544 [kN]
+\end{align}
+\end{equation}
