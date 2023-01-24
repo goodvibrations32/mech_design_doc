@@ -1,0 +1,12 @@
+#+TITLE: Computations
+
+#+STARTUP: latexpreview
+#+LANGUAGE: gr
+#+OPTIONS: toc: t tags:t
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+EXCLUDE_TAGS: noexport
+#+TAGS:  noexport(n)
+
+* Computation
+* notes :noexport:
