@@ -1,8 +1,8 @@
 #+TITLE: Computations
 
-#+STARTUP: latexpreview
+#+STARTUP: latexpreview, showeverything
 #+LANGUAGE: gr
-#+OPTIONS: toc: t tags:t
+#+OPTIONS: toc:t tags:t
 #+LATEX: tags
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -19,6 +19,30 @@
 υπολογισμούς με αποτέλεσμα την εύκολη αλλαγή των δεδομένων σχεδιασμού
 στην πορεία της εργασίας.
 ** Γενικοί υπολογισμοί
+Για τον υπολογισμό των φορτίων που θα παραλάβει η κατασκευή και τον
+καθορισμό των διατομών επιμέρους τμημάτων, απαιτείται η εύρεση των φορτίων
+που θα αναπτυχθούν καθώς και τα όρια αντοχής μέσω της ανάλυσης στατικής
+επάρκειας. Από τα δεδομένα της εργασίας ξέρουμε ότι η διαδρομή του βαρούλκου
+θα πρέπει να είναι συνολικά εννέα (9) μέτρα και εκείνη του κύριου φορέα
+δεκαπέντε (15) μέτρα. Επίσης είναι γνωστό το μεταφερόμενο ονομαστικό βάρος
+ίσο με οκτώ τόνους. Το επιθυμητό μέγιστο ύψος ανέλκυσης από την επιφάνεια
+του δαπέδου είναι τρεισήμισι (3,5) μέτρα.
+Για να γίνει η μετατροπή των κιλών σε μονάδες που μπορούμε εύκολα να διαχειριστούμε (Σ.Ι.) θα πρέπει να υπολογιστεί η ονομαστική δύναμη σύμφωνα με την παρακάτω εξίσωση :
+
+\begin{equation}
+\begin{align}
+F = m [kg] \cdot g [\right\frac{m}{s^{2}} \left] \Rightarrow \\
+F = 8000 [kg] \cdot 9.81 [\right\frac{m}{s^{2}} \left] \Rightarrow \\
+&F = 78.48 [kN] \\
+\end{align}
+\end{equation}
+Για τον υπολογισμό της δύναμης που θα καταπονεί την κατασκευή την ώρα της
+λειτουργίας θα πρέπει να συνυπολογιστεί και η κρουστική καταπόνηση που
+δέχεται το σύστημα. Όμως αυτό θα ενταχθεί στο κεφάλαιο των διαγραμμάτων
+καμπτικών ροπών και τεμνουσών δυνάμεων. Εδώ είμαστε πλέων σε θέση να
+επιλέξουμε το βαρούλκο από την αγορά. Επειδή η διαθεσιμότητα των
+βαρούλκων με ικανότητα ανύψωσης οκτώ τόνων είναι μικρότερη από εκείνη των
+πέντε και δέκα, θα επιλεχθεί εκείνο με δυνατότητα δέκα (10) τόνων.
 *** Προσδιορισμός κρίσιμων δεδομένων σχεδιασμού
 
 \begin{equation}
@@ -57,7 +81,8 @@
 
 \begin{equation}
 \begin{align}
-N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
+N(x) - A_{x} = 0 \Rightarrow \\
+N(x) = A_{x} \Rightarrow \\
 &N(x) = 0
 \end{align}
 \end{equation}
@@ -66,7 +91,8 @@ N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
 
 \begin{equation}
 \begin{align}
-Q(x) - A_{y} = 0 \Rightarrow Q(x) = A_{y} \Rightarrow \\
+Q(x) - A_{y} = 0 \Rightarrow \\
+Q(x) = A_{y} \Rightarrow \\
 &Q(x) = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
 \end{align}
 \end{equation}
@@ -75,7 +101,8 @@ Q(x) - A_{y} = 0 \Rightarrow Q(x) = A_{y} \Rightarrow \\
 
 \begin{equation}
 \begin{align}
-M(x) + A_{y} \cdot x = 0 \Rightarrow M(x) = -A_{y} \cdot x \Rightarrow \\
+M(x) + A_{y} \cdot x = 0 \Rightarrow \\
+M(x) = -A_{y} \cdot x \Rightarrow \\
 &M(x) = -(\right F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \left) \cdot x
 \end{align}
 \end{equation}
@@ -87,7 +114,8 @@ M(x) + A_{y} \cdot x = 0 \Rightarrow M(x) = -A_{y} \cdot x \Rightarrow \\
 
 \begin{equation}
 \begin{align}
-N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
+N(x) - A_{x} = 0 \Rightarrow \\
+N(x) = A_{x} \Rightarrow \\
 &N(x)= 0
 \end{align}
 \end{equation}
@@ -96,7 +124,8 @@ N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
 
 \begin{equation}
 \begin{align}
-Q(x) - A_{y} +F_{1} = 0 \Rightarrow Q(x) = A_{y}-F_{1} \Rightarrow \\
+Q(x) - A_{y} +F_{1} = 0 \Rightarrow \\
+Q(x) = A_{y}-F_{1} \Rightarrow \\
 &Q(x) = F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
 \end{align}
 \end{equation}
@@ -117,7 +146,8 @@ M(x) = -(A_{y} \cdot x + F_{1} \cdot (x-x_{1})) \Rightarrow \\
 
 \begin{equation}
 \begin{align}
-N(x) - A_{x} = 0 \Rightarrow N(x) = A_{x} \Rightarrow \\
+N(x) - A_{x} = 0 \Rightarrow \\
+N(x) = A_{x} \Rightarrow \\
 &N(x) = 0
 \end{align}
 \end{equation}
@@ -138,10 +168,47 @@ Q(x) = A_{y} - F_{1}-F_{2} \Rightarrow \\
 \begin{align}
 M(x) + A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2}) = 0 \Rightarrow \\
 M(x) = -(A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2})) \Rightarrow \\
-&M(x) = - [\right (\right F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \left) \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2}) \left]
+M(x) = - [\right (\right F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \left) \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2}) \left] \\
 \end{align}
 \end{equation}
+*** Δυσμενέστερη θέση γερανοδοκού
+Για την δοκό που κινείται και στιρίζεται το βαρούλκο θα ισχύουν τα εξής
+στην εκάστοτε απόσταση :
+*Οταν το βαρούλκο βρίσκεται στην μέση της απόστασης από την ακραία θέση στο μέσο της δοκού :*
 
+[[file:./9_meters_mid_right.png]]
+
+#+begin_src python :tangle yes
+#TODO after compute for the given x, x_1, x_2, x_3
+#+end_src
+
+
+*Οταν το βαρούλκο βρίσκεται στην δεξιά ακραία θέση :*
+
+[[file:./9_meters_right_right.png]]
+
+#+begin_src python :tangle yes
+#TODO after compute for the given x, x_1, x_2, x_3
+#+end_src
+*** Δυσμενέστερη θέση γερανοφορέων
+Για την δοκό που κινείται και στιρίζεται το βαρούλκο θα ισχύουν τα εξής
+στην εκάστοτε απόσταση :
+*Οταν το βαρούλκο βρίσκεται στην μέση της απόστασης από την ακραία θέση στο μέσο της δοκού :*
+
+[[file:./15_meters_mid_right.png]]
+
+#+begin_src python :tangle yes
+#TODO after compute for the given x, x_1, x_2, x_3
+#+end_src
+
+
+*Οταν το βαρούλκο βρίσκεται στην δεξιά ακραία θέση :*
+
+[[file:./15_meters_right_right.png]]
+
+#+begin_src python :tangle yes
+#TODO after compute for the given x, x_1, x_2, x_3
+#+end_src
 *** Υπολογισμός φορτίων
 ** Διαγράμματα N, Q, M
 ** Διαστασιολόγιση επιμέρους τμημάτων
