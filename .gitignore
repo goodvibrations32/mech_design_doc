@@ -24,9 +24,8 @@
 # ignore pics for vibrations chapter
 !vibration_control.png
 
-# ignore folder for bib files
-!Μηχανολογικός Σχεδιασμός 1/Μηχανολογικός Σχεδιασμός 1/papers-cranes/bib-files/S0143974X20310282.bib
-!Μηχανολογικός Σχεδιασμός 1/Μηχανολογικός Σχεδιασμός 1/papers-cranes/bib-files/S0888327013003166.bib
-!Μηχανολογικός Σχεδιασμός 1/Μηχανολογικός Σχεδιασμός 1/papers-cranes/bib-files/S0967066118305306.bib
-!Μηχανολογικός Σχεδιασμός 1/Μηχανολογικός Σχεδιασμός 1/papers-cranes/bib-files/S1350630720314175.bib
-!Μηχανολογικός Σχεδιασμός 1/Μηχανολογικός Σχεδιασμός 1/papers-cranes/bib-files/S1350630722001911.bib
+# ignore pics for computations chapter
+!9_meters_mid_right.png
+!9_meters_right_right.png
+!15_meters_mid_right.png
+!15_meters_right_right.png
