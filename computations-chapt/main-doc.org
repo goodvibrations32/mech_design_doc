@@ -1,8 +1,9 @@
 #+TITLE: Computations
 
-#+STARTUP: latexpreview
+#+STARTUP: latexpreview, showeverything
 #+LANGUAGE: gr
-#+OPTIONS: toc: t tags:t
+#+OPTIONS: toc:t tags:t
+#+LATEX: tags
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+EXCLUDE_TAGS: noexport
@@ -18,10 +19,765 @@
 υπολογισμούς με αποτέλεσμα την εύκολη αλλαγή των δεδομένων σχεδιασμού
 στην πορεία της εργασίας.
 ** Γενικοί υπολογισμοί
+Για τον υπολογισμό των φορτίων που θα παραλάβει η κατασκευή και τον
+καθορισμό των διατομών επιμέρους τμημάτων, απαιτείται η εύρεση των φορτίων
+που θα αναπτυχθούν καθώς και τα όρια αντοχής μέσω της ανάλυσης στατικής
+επάρκειας. Από τα δεδομένα της εργασίας ξέρουμε ότι η διαδρομή του βαρούλκου
+θα πρέπει να είναι συνολικά εννέα (9) μέτρα και εκείνη του κύριου φορέα
+δεκαπέντε (15) μέτρα. Επίσης είναι γνωστό το μεταφερόμενο ονομαστικό βάρος
+ίσο με οκτώ τόνους. Το επιθυμητό μέγιστο ύψος ανέλκυσης από την επιφάνεια
+του δαπέδου είναι τρεισήμισι (3,5) μέτρα.
+Για να γίνει η μετατροπή των κιλών σε μονάδες που μπορούμε εύκολα να διαχειριστούμε (Σ.Ι.) θα πρέπει να υπολογιστεί η ονομαστική δύναμη σύμφωνα με την παρακάτω εξίσωση :
+
+\begin{equation}
+\nonumber
+\begin{align}
+F = m [kg] \cdot g [\right\frac{m}{s^{2}} \left] \Rightarrow \\
+F = 8000 [kg] \cdot 9.81 [\right\frac{m}{s^{2}} \left] \Rightarrow \\
+&F = 78.48 [kN] \\
+\end{align}
+\end{equation}
+Για τον υπολογισμό της δύναμης που θα καταπονεί την κατασκευή την ώρα της
+λειτουργίας θα πρέπει να συνυπολογιστεί και η κρουστική καταπόνηση που
+δέχεται το σύστημα. Όμως αυτό θα ενταχθεί στο κεφάλαιο των διαγραμμάτων
+καμπτικών ροπών και τεμνουσών δυνάμεων. Εδώ είμαστε πλέων σε θέση να
+επιλέξουμε το βαρούλκο από την αγορά. Επειδή η διαθεσιμότητα των
+βαρούλκων με ικανότητα ανύψωσης οκτώ τόνων είναι μικρότερη από εκείνη των
+πέντε και δέκα, θα επιλεχθεί εκείνο με δυνατότητα δέκα (10) τόνων.
 *** Προσδιορισμός κρίσιμων δεδομένων σχεδιασμού
-*** Υπολογισμός φορτίων
+
+\begin{equation}
+\nonumber
+\begin{align}
+\Sigma F_{x} = 0 \Rightarrow A_{x} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+\Sigma F_{y} = 0 \Rightarrow A_{y}+B_{y}-F_{1}-F_{2} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+\Sigma M_{A} = 0 \Rightarrow F_{1} \cdot x_{1}+F_{2} \cdot x_{2} - B_{y} \cdot x_{tot} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+(3) \Rightarrow B_{y} =  \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+    \end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+(2) \Rightarrow A_{y} = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+**** Για \(0<x<x_{1}\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+N(x) - A_{x} = 0 \Rightarrow \\
+N(x) = A_{x} \Rightarrow \\
+&N(x) = 0
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} = 0 \Rightarrow \\
+Q(x) = A_{y} \Rightarrow \\
+&Q(x) = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) + A_{y} \cdot x = 0 \Rightarrow \\
+M(x) = -A_{y} \cdot x \Rightarrow \\
+&M(x) = -(\right F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \left) \cdot x
+\end{align}
+\end{equation}
+
+
+**** Για \(x_{1}<x<x_{2}\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+N(x) - A_{x} = 0 \Rightarrow \\
+N(x) = A_{x} \Rightarrow \\
+&N(x)= 0
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} = 0 \Rightarrow \\
+Q(x) = A_{y}-F_{1} \Rightarrow \\
+&Q(x) = F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) + A_{y} \cdot x + F_{1} \cdot (x-x_{1}) = 0 \Rightarrow \\
+M(x) = -(A_{y} \cdot x + F_{1} \cdot (x-x_{1})) \Rightarrow \\
+&M(x) = - [\right (\right F_{1}+F_{2}-\frac{F_{1}\cdot x_{1}+F_{2}\cdot x_{2}}{x_{tot}}\left)\cdot x +F_{1}\cdot(x-x_{1})\left]
+\end{align}
+\end{equation}
+
+**** Για \(x_{1} + x_{2} < x <x_{1}+x_{2}+x_{3}\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+N(x) - A_{x} = 0 \Rightarrow \\
+N(x) = A_{x} \Rightarrow \\
+&N(x) = 0
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} +F_{2} = 0 \Rightarrow \\
+Q(x) = A_{y} - F_{1}-F_{2} \Rightarrow \\
+&Q(x) = - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}}
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) + A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2}) = 0 \Rightarrow \\
+M(x) = -(A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2})) \Rightarrow \\
+M(x) = - [\right (\right F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \left) \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2}) \left] \\
+\end{align}
+\end{equation}
+*** Δυσμενέστερη θέση κύριου φορέα
+Για την δοκό που κινείται και στιρίζεται το βαρούλκο θα ισχύουν τα εξής
+στην εκάστοτε απόσταση :
+**** *Όταν το βαρούλκο βρίσκεται στην μέση της απόστασης από την ακραία θέση στο μέσο της δοκού :*
+
+[[file:./9_meters_mid_right.png]]
+
+Για τις τιμές των αποστάσεων στην παραπάνω περίπτωση θα έχουμε ότι:
+
+\begin{equation}
+\nonumber
+\begin{align}
+A_{y} = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&= 47,088 \cdot 2 - \frac{47,088 \cdot 6,425 + 47,088 \cdot 7,075}{9} [kN] \\
+&=23,544 kN \\
+B_{y} = \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&=\frac{47,088 \cdot 6,425 + 47,088 \cdot 7,075}{9} [kN] \\
+&=70,632 kN
+\end{align}
+\end{equation}
+
+***** Για \(0<x<6,425\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&N(x) = 0 \\
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&Q(x) = 23,544\ [kN]
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x \Rightarrow \\
+&M(0) = 0\ [kN\cdot m] \\
+&M(6,425) = -23,544\ [kN] \cdot 6,425\ [m] = -151,27\ [kN\cdot m] \\
+\end{align}
+\end{equation}
+
+***** Για \(6,425<x<7,075\)
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} = 0 \Rightarrow \\
+Q(x) = A_{y}-F_{1} \Rightarrow \\
+&Q(x) = 23.544\ kN\ - 23.544\ kN\  = 0\ kN
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x + F_{1} \cdot (x-x_{1}) \Rightarrow \\
+M(6,425) &= -151,27\ [kN\cdot m] \\
+M(7,075) &= -23,544 \cdot 7,075 + 23,544 \cdot (7,075-6,425) \\
+&= -151,27\ [kN\ \cdot \ m] \\
+\end{align}
+\end{equation}
+
+***** Για \(7.075 < x <9 \)
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} +F_{2} = 0 \Rightarrow \\
+Q(x) = A_{y} - F_{1}-F_{2} \Rightarrow \\
+&Q(x) = -23,544\ kN
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -(A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2})) \Rightarrow \\
+M(7,075) &= -151.27\ [kN\ \cdot \ m] \\
+M(9) &= 0\ [kN\ \cdot \ m] \\
+\end{align}
+\end{equation}
+**** *Όταν το βαρούλκο βρίσκεται στην δεξιά ακραία θέση :*
+
+[[file:./9_meters_right_right.png]]
+
+Για τις τιμές των αποστάσεων στην παραπάνω περίπτωση θα έχουμε ότι:
+
+\begin{equation}
+\nonumber
+\begin{align}
+A_{y} = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&= 47,088 \cdot 2 - \frac{47,088 \cdot 8,350 + 47,088 \cdot 9}{9} [kN] \\
+&=3,40 kN \\
+B_{y} = \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&=\frac{47,088 \cdot 8,350 + 47,088 \cdot 9}{9} [kN] \\
+&=90,775 kN
+\end{align}
+\end{equation}
+
+***** Για \(0<x<8,350\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&N(x) = 0 \\
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&Q(x) = 3,4\ [kN]
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x \Rightarrow \\
+&M(0) = 0\ [kN\cdot m] \\
+&M(8,350) = -3,4\ [kN] \cdot 8,350\ [m] = -28,29\ [kN\cdot m] \\
+\end{align}
+\end{equation}
+
+***** Για \(8,350<x<9\)
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} = 0 \Rightarrow \\
+Q(x) = A_{y}-F_{1} \Rightarrow \\
+&Q(x) = 3,4\ kN - 23.544\ kN\  = -\ 20,144\ kN
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x + F_{1} \cdot (x-x_{1}) \Rightarrow \\
+M(8,350) &= -28,29\ [kN\cdot m] \\
+M(9) &= -3,4 \cdot 9 + 23,544 \cdot (9-8,35) \\
+&= -15,29\ [kN\ \cdot \ m] \\
+\end{align}
+\end{equation}
+
+*** Δυσμενέστερη θέση γερανοφορέων
+Για την δοκό που κινείται και στιρίζεται ο κύριος φορέας θα ισχύουν τα
+εξής στην εκάστοτε απόσταση :
+**** *Οταν ο κύριος φορέας βρίσκεται στην μέση της απόστασης από την ακραία θέση στο μέσο της δοκού :*
+
+[[file:./15_meters_mid_right.png]]
+
+
+Για τις τιμές των αποστάσεων στην παραπάνω περίπτωση θα έχουμε ότι:
+
+\begin{equation}
+\nonumber
+\begin{align}
+A_{y} = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&= 47,088 \cdot 2 - \frac{47,088 \cdot 11,95 + 47,088 \cdot 13,35}{15} [kN] \\
+&=14,75 kN \\
+B_{y} = \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&=\frac{47,088 \cdot 11,95 + 47,088 \cdot 13,35}{15} [kN] \\
+&=79,42 kN
+\end{align}
+\end{equation}
+
+***** Για \(0<x<11,95\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&N(x) = 0 \\
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&Q(x) = 14,75\ [kN]
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x \Rightarrow \\
+&M(0) = 0\ [kN\cdot m] \\
+&M(11,95) = -14,75\ [kN] \cdot 11,95\ [m] = -176,26\ [kN\cdot m] \\
+\end{align}
+\end{equation}
+***** Για \(11,95<x<13,35\)
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} = 0 \Rightarrow \\
+Q(x) = A_{y}-F_{1} \Rightarrow \\
+&Q(x) = 14,75\ kN\ - 23.544\ kN\  = -8,79\ kN
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x + F_{1} \cdot (x-x_{1}) \Rightarrow \\
+M(11,95) &= -176,26\ [kN\cdot m] \\
+M(13,35) &= -14,75  \cdot 13,35 + 23,544 \cdot (13,35-11,95) \\
+&= -163,95\ [kN\ \cdot \ m] \\
+\end{align}
+\end{equation}
+***** Για \(13,35 < x <15 \)
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} +F_{2} = 0 \Rightarrow \\
+Q(x) = A_{y} - F_{1}-F_{2} \Rightarrow \\
+&Q(x) = -32,334\ kN
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -(A_{y} \cdot x - F_{1} \cdot (x-x_{1}) - F_{2} \cdot (x-x_{1}-x_{2})) \Rightarrow \\
+M(13,35) &= -163,95\ [kN\ \cdot \ m] \\
+M(15) &= 0\ [kN\ \cdot \ m] \\
+\end{align}
+\end{equation}
+**** *Οταν ο κύριος φορέας βρίσκεται στην δεξιά ακραία θέση :*
+
+[[file:./15_meters_right_right.png]]
+
+
+\begin{equation}
+\nonumber
+\begin{align}
+A_{y} = F_{1}+F_{2} - \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&= 47,088 \cdot 2 - \frac{47,088 \cdot 13,6 + 47,088 \cdot 15}{15} [kN] \\
+&=4,40 kN \\
+B_{y} = \frac{F_{1} \cdot x_{1}+F_{2} \cdot x_{2}}{x_{tot}} \Rightarrow\\
+&=\frac{47,088 \cdot 13,6 + 47,088 \cdot 15}{15} [kN] \\
+&=89,78 kN
+\end{align}
+\end{equation}
+
+***** Για \(0<x<13,6\)
+
+Για τις αξονικές δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&N(x) = 0 \\
+\end{align}
+\end{equation}
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+&Q(x) = 4,4\ [kN]
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x \Rightarrow \\
+&M(0) = 0\ [kN\cdot m] \\
+&M(13,6) = -4,4\ [kN] \cdot 13,6\ [m] = -59,84\ [kN\cdot m] \\
+\end{align}
+\end{equation}
+
+***** Για \(13,6<x<15\)
+
+Για τις τέμνουσες δυνάμεις θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+Q(x) - A_{y} +F_{1} = 0 \Rightarrow \\
+Q(x) = A_{y}-F_{1} \Rightarrow \\
+&Q(x) = 4,4\ kN - 23.544\ kN\  = -\ 19,144\ kN
+\end{align}
+\end{equation}
+
+Για τις καμπτικές ροπές θα ισχύει ότι :
+
+\begin{equation}
+\nonumber
+\begin{align}
+M(x) = -A_{y} \cdot x + F_{1} \cdot (x-x_{1}) \Rightarrow \\
+M(13,6) &= -59,84\ [kN\cdot m] \\
+M(15) &= -4,4 \cdot 15 + 23,544 \cdot (15-13,6) \\
+&= -33,03\ [kN\ \cdot \ m] \\
+\end{align}
+\end{equation}
+
+** Υπολογισμός φορτίων
+Ο υπολογισμός των φορτίων θα παρουσιαστεί για τον έναν από τους δύο
+γερανοδοκούς καθώς και για την τομή ως προς τον διαμήκη άξονα συμμετρίας
+του κύριου φορέα, αφού θα αναπτύσσονται τα ίδια φορτία στις άλλες πλευρές
+της κατασκευής. Για τους παρακάτω υπολογισμούς θεωρήθηκε σαν φορτίο
+εφαρμογής η δύναμη ονομαστικής λειτουργίας 78,48 kΝ.
+*** Υπολογισμοί κύριου φορέα
+Λόγω της ομοιόμορφης κατανομής του βάρους στους τροχούς του βαρούλκου
+η δύναμη διαμοιράζεται ίσα στα τέσσερα σημεία επαφής τους με την δοκό.
+Έτσι στην κάθε ρόδα θα αρκείται δύναμη ίση με :
+\(F_{1} = F_{2} = \frac{F \cdot C_{s}}{4} = \frac{78,48 \cdot 1,2}{4} = 23,544\ [kN]\)
+Εφαρμόζοντας τις εξισώσεις ισορροπίας στερεού σώματος υπολογίζονται οι
+δυνάμεις που ασκούνται στον κύριο φορέα ως εξής :
+\begin{equation}
+\nonumber
+\begin{align}
+\Sigma F_{x} &= 0 \Rightarrow A_{x} = 0 \\
+\Sigma F_{y} &= 0 \Rightarrow A_{y}+B_{y} = F_{1}+F_{2} = 47,088\ [kN] \\
+\Sigma M_{A} &= 0 \Rightarrow F_{1} \cdot x_{1} + F_{2} \cdot x_{2} - B_{y} \cdot x_{tot} = 0 \\
+&B_{y} = 23,544\ [kN] \\
+&A_{y} = 23,544\ [kN] \\
+\end{align}
+\end{equation}
+
+*** Υπολογισμοί γερανοδοκού
+Εδώ ο πλαγιοφορέας εδράζεται σε δύο ρόδες και επομένως η αντίστοιχη
+δύναμη υπολογίζεται παρακάτω.
+Στην κάθε ρόδα θα αρκείται δύναμη ίση με :
+\(F_{1} = F_{2} = \frac{F \cdot C_{s}}{4} = \frac{78,48 \cdot 1,2}{2} = 48,088\ [kN]\)
+Εφαρμόζοντας τις εξισώσεις ισορροπίας στερεού σώματος υπολογίζονται οι
+δυνάμεις που ασκούνται στον κύριο φορέα ως εξής :
+\begin{equation}
+\nonumber
+\begin{align}
+\Sigma F_{x} &= 0 \Rightarrow A_{x} = 0 \\
+\Sigma F_{y} &= 0 \Rightarrow A_{y}+B_{y} = F_{1}+F_{2} = 94,176\ [kN] \\
+\Sigma M_{A} &= 0 \Rightarrow F_{1} \cdot x_{1} + F_{2} \cdot x_{2} - B_{y} \cdot x_{tot} = 0 \\
+&B_{y} = 47,088\ [kN] \\
+&A_{y} = 47,088\ [kN] \\
+\end{align}
+\end{equation}
+
 ** Διαγράμματα N, Q, M
+Παρακάτω παραθέτονται οι πίνακες και τα διαγράμματα με τις τιμές που
+εξήχθησαν με την χρήση υπολογιστικών φύλλων για την ροπή κάμψης, τις
+τέμνουσες και τις αξονικές δυνάμεις που δρούν στην κατασκευή.
+
+[[file:./9_meters.png]]
+
+*Πίνακας Κύριου Φορέα*
+
+| x (m) | N (x) [kN] | Q (x) [kN] | M (x) [kN] |
+|-------+------------+------------+------------|
+| 0     |          0 | 23,544     | 0          |
+| 4,15  |          0 | 23,544     | -97,70     |
+| 4,175 |          0 | 0          | -98,29     |
+| 4,825 |          0 | 0          | -98,29     |
+| 4,83  |          0 | -23,544    | -98,18     |
+| 9     |          0 | -23,544    | 0          |
+#+TBLFM: $3 = $3/2
+
+[[file:./15_meters.png]]
+
+*Πίνακας Γερανοδοκού*
+
+| x (m) | N (x) [kN] | Q (x) [kN] | M (x) [kN] |
+|-------+------------+------------+------------|
+| 0     |          0 | 47,088     | 0          |
+| 6,79  |          0 | 47,088     | -319,72    |
+| 6,8   |          0 | 0          | -320,19    |
+| 8,19  |          0 | 0          | -320,19    |
+| 8,2   |          0 | -47,088    | -320,19    |
+| 15    |          0 | -47,088    | 0          |
+
 ** Διαστασιολόγιση επιμέρους τμημάτων
+*** Κύριος φορέας
+Από τον υπολογισμό των φορτίων σε προηγούμενη ενότητα έχουν γίνει γνωστές
+οι μέγιστες καταπονήσεις που δέχεται ο κύριος φορέας. Επιλέγοντας το πρότυπο
+ΕΝ10025 ο χάλυβας S355 έχει όριο διαρροής 355 MPa. Έτσι γνωρίζοντας την
+οριακή καθώς και την επιτρεπόμενη τάση εφαρμόζοντας την σχέση που συνδέει
+τον συντελεστή ασφαλείας με τον λόγο του ορίου διαρροής και επιτρεπόμενης
+τάσης θα έχουμε ότι:
+\begin{equation}
+\nonumber
+\begin{align}
+C_{f} \cdot C_{s} \leq \frac{\sigma_{y}}{\sigma_{\epsilon\pi}} \Rightarrow \\
+&\sigma_{\epsilon\pi} \leq \frac{\sigma_{y}}{C_{f}\cdot C_{s}} \Rightarrow \\
+&\sigma_{\epsilon\pi} \leq \frac{355}{1,4 \cdot 1,2} \Rightarrow \\
+&\sigma_{\epsilon\pi} \leq 211,30\ [MPa]
+\end{align}
+\end{equation}
+Έτσι η ελάχιστη ροπή αντίστασης σε κάμψη για το υλικό που επιλέχθηκε θα είναι
+\begin{equation}
+\nonumber
+\begin{align}
+\sigma_{\epsilon\pi} = \frac{M_{max}}{W} \Rightarrow \\
+W = \frac{M_{max}}{\sigma_{\epsilon\pi}} = 1849,56\ [cm^{3}]
+\end{align}
+\end{equation}
+Σύμφωνα με την EN10024:1995 τυποποίηση για υψίκορμους δοκούς διατομής IPN η
+διάσταση που καλύπτει τις απαιτήσεις είναι η IPN450. Έπειτα πρέπει να
+γίνει έλεγχος της εν' λόγω διατομής ώστε να διαπιστωθεί η αντοχή της σε
+κάμψη. Η μέγιστη ορθή τάση κάμψης που αναπτύσσεται κατά μήκος του "ισχυρού"
+άξονα y'-y θα δημιουργείται στην άνω επιφάνεια του πέλματος, και
+υπολογίζεται ως εξής:
+Χαρακτηριστικά διατομής από πίνακες τυποποίησης:
+| Ροπή αδράνειας επιφάνειας Ι_gr | Ύψος δοκού |
+|--------------------------------+------------|
+| cm^4                           | mm         |
+| 45850                          | 450        |
+
+\begin{equation}
+\nonumber
+\begin{align}
+\sigma_{x} = \frac{M_{max}}{I_{y}} \cdot y_{x} \\
+&= \frac{390,83\ [kNm]}{45850 \cdot 10^{4}\ [mm^{4}]} \cdot 225\ [mm] \\
+&= 191,79\ [MPa] \\
+\end{align}
+\end{equation}
+Επομένως η μέγιστη ορθή τάση που εμφανίζεται στην κύρια δοκό είναι μικρότερη
+από την επιτρεπόμενη τιμή του υλικού.
+*** Γερανοδοκός
+Ακολουθόντας την ίδια διαδικασία για την γερανοδοκό δείχνεται πως η
+επιτρεπόμενη τάση θα είναι η ίδια ενώ αλλάζει η ροπή αντίστασης W:
+
+\begin{equation}
+\nonumber
+\begin{align}
+W = \frac{M_{max}}{\sigma_{\epsilon \pi}} \Rightarrow \\
+&= \frac{640,4\ [kNm]}{211.30\ [MPa]} \Rightarrow \\
+W &= 3030,6\ [cm^{4}]
+\end{align}
+\end{equation}
+Από τους πίνακες χαρακτηριστικών των δοκών επιλέγεται η διατομή IPN550
+με ροπή αντίστασης σε κάμψη ίση με 3610 \(cm^{4}\). Ελέγχοντας την διατομή για
+την μέγιστη ορθή τάση λόγω κάμψης θα έχουμε ότι:
+| Ροπή αδράνειας επιφάνειας Ι_gr | Ύψος δοκού |
+|--------------------------------+------------|
+| cm^4                           | mm         |
+| 99180                          | 550        |
+
+\begin{equation}
+\nonumber
+\begin{align}
+\sigma_{x} = \frac{M_{max}}{I_{y}} \cdot y_{x} \\
+&= \frac{640,4\ [kNm]}{99180 \cdot 10^{4}\ [mm^{4}]} \cdot 275\ [mm] \\
+&= 177,56\ [MPa] \\
+\end{align}
+\end{equation}
+Παρατηρούμε πως το επιτρεπόμενο όριο δεν ξεπερνάτε και επομένως η
+διατομή επιλέχθηκε σωστά.
 ** Υπολογισμοί συνδέσμων
-** Λοιπά στοιχεία μηχανών
+Λόγω της συχνής χρήσης των κοχλιών για την σύσφιξη αλλά και πολλές ακόμα
+εργασίες, η τυποποίηση καθώς και η διάθεσή τους γίνεται σε μεγάλο εύρος
+διαστάσεων. Βασικές κατηγορίες αποτελούν οι κοχλίες κίνησης, μέτρησης,
+ρύθμισης οργάνων κ.α.. Επιπρόσθετα κατηγοριοποιούνται σε κλάσεις για
+την ταξινόμησή τους κατά όριο αντοχής. Εδώ θα χρησιμοποιηθούν κοχλίες
+κλάσης 12.9 που σύμφωνα με το πρότυπο DIN EN 20898 έχει όριο διαρροής
+Re = 1080 MPa.
+Η μέγιστη αναπτυσσόμενη τάση λόγω αξονικών φορτίσεων στον κοχλία δίνεται
+από την σχέση:
+\begin{equation}
+\nonumber
+\begin{align}
+\sigma = \frac{F_{max}}{A_{s}} \leq \sigma_{\epsilon\pi} = 0,8 \cdot R_{e}
+\end{align}
+\end{equation}
+
+Επίσης θα πρέπει να ισχύει:
+
+\begin{equation}
+\nonumber
+\begin{align}
+\frac{\sigma_{\epsilon\pi}}{\sigma} = C_{f} \cdot C_{s} \Rightarrow \\
+&\sigma = \frac{0,8 \cdot R_{e}}{1,68} = 514,28 MPa
+\end{align}
+\end{equation}
+
+Επομένως το απαιτούμενο εμβαδό της διατομής θα είναι:
+
+\begin{equation}
+\nonumber
+\begin{align}
+A_{s} = \frac{F_{max}}{\sigma} = \frac{94176}{514,28} = 183,22\ [mm^{2}]
+\end{align}
+\end{equation}
+
+Η τελική διάμετρος υπολογίζεται ως εξής:
+
+\begin{equation}
+\nonumber
+\begin{align}
+r = \sqrt{\frac{183,22}{\pi}} = 7,63\ [mm]
+\end{align}
+\end{equation}
+
+Η τελική επιλογή θα είναι κοχλίες σύσφιξης Μ16 καθώς
+είμαστε οριακά στην διάσταση Μ14.
 * notes :noexport:
+** TODO be ready at<2023-01-29 Κυρ>
+** How to continue the numbering
+
+\begin{equation}
+\nonumber
+\begin{align}
+\setcounter{7}
+\Sigma F_{x} = 0 \Rightarrow A_{x} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+\setcounter{8}
+\Sigma F_{y} = 0 \Rightarrow A_{y}+B_{y}-F_{1}-F_{2} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+\setcounter{8}
+\Sigma M_{A} = 0 \Rightarrow F_{1} \cdot x_{1}+F_{2} \cdot x_{2} - B_{y} \cdot x_{tot} = 0
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+\setcounter{8}
+(3) \Rightarrow B_{y} = 23.544 [kN]
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+\setcounter{8}
+(2) \Rightarrow A_{y} = F_{1}+F_{2} - B_{y} \Rightarrow
+\end{align}
+\end{equation}
+
+\begin{equation}
+\nonumber
+\begin{align}
+\setcounter{8}
+F_{work_{tot}} - B_{y} = 47.088 [kN] - 23.544 [kN] = 23.544 [kN]
+\end{align}
+\end{equation}

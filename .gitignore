@@ -2,7 +2,10 @@
 *.odt
 *.odp
 *.png
+
+#ignore specific folders
 Μηχανολογικός Σχεδιασμός 1/
+
 
 #Exceptions for rendering images in github
 !cyclic_stress.png
@@ -20,3 +23,9 @@
 
 # ignore pics for vibrations chapter
 !vibration_control.png
+
+# ignore pics for computations chapter
+!9_meters_mid_right.png
+!9_meters_right_right.png
+!15_meters_mid_right.png
+!15_meters_right_right.png
