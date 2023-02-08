@@ -735,7 +735,6 @@ r = \sqrt{\frac{183,22}{\pi}} = 7,63\ [mm]
 ** How to continue the numbering
 
 \begin{equation}
-\nonumber
 \begin{align}
 \setcounter{7}
 \Sigma F_{x} = 0 \Rightarrow A_{x} = 0
@@ -743,7 +742,6 @@ r = \sqrt{\frac{183,22}{\pi}} = 7,63\ [mm]
 \end{equation}
 
 \begin{equation}
-\nonumber
 \begin{align}
 \setcounter{8}
 \Sigma F_{y} = 0 \Rightarrow A_{y}+B_{y}-F_{1}-F_{2} = 0
@@ -751,7 +749,6 @@ r = \sqrt{\frac{183,22}{\pi}} = 7,63\ [mm]
 \end{equation}
 
 \begin{equation}
-\nonumber
 \begin{align}
 \setcounter{8}
 \Sigma M_{A} = 0 \Rightarrow F_{1} \cdot x_{1}+F_{2} \cdot x_{2} - B_{y} \cdot x_{tot} = 0
@@ -759,7 +756,6 @@ r = \sqrt{\frac{183,22}{\pi}} = 7,63\ [mm]
 \end{equation}
 
 \begin{equation}
-\nonumber
 \begin{align}
 \setcounter{8}
 (3) \Rightarrow B_{y} = 23.544 [kN]
@@ -767,7 +763,6 @@ r = \sqrt{\frac{183,22}{\pi}} = 7,63\ [mm]
 \end{equation}
 
 \begin{equation}
-\nonumber
 \begin{align}
 \setcounter{8}
 (2) \Rightarrow A_{y} = F_{1}+F_{2} - B_{y} \Rightarrow
@@ -775,7 +770,6 @@ r = \sqrt{\frac{183,22}{\pi}} = 7,63\ [mm]
 \end{equation}
 
 \begin{equation}
-\nonumber
 \begin{align}
 \setcounter{8}
 F_{work_{tot}} - B_{y} = 47.088 [kN] - 23.544 [kN] = 23.544 [kN]
